@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: iot-analytics
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/yourrepo/iot-analytics.git'
+    path: deployment/kubernetes
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: iot-analytics
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

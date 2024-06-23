@@ -1,0 +1,39 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "IoT Analytics Dashboard",
+    "tags": [],
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Device Data",
+        "gridPos": { "x": 0, "y": 0, "w": 24, "h": 9 },
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "rate(device_data_total[5m])",
+            "interval": "",
+            "legendFormat": "{{device}}",
+            "refId": "A"
+          }
+        ],
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "show": true
+          }
+        ]
+      }
+    ],
+    "schemaVersion": 27,
+    "version": 1
+  }
+}
